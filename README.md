@@ -1,0 +1,5 @@
+# docker-cordova
+      
+## License
+
+**MIT**
