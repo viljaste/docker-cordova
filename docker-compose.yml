@@ -1,18 +1,6 @@
 cordova:
   image: viljaste/cordova:latest
   hostname: cordova
-  volumes_from:
-    - cordovadata
-  links:
-    - conntrack
-  environment:
-    - SERVER=Off
-    - BOOTSTRAP_EXPECT=
-    - ADVERTISE_ADDR=
-    - RETRY_JOIN=
-    - ENCRYPT=
-cordovadata:
-  image: viljaste/data:latest
-  hostname: cordovadata
+  privileged: true
   volumes:
-    - /cordova
+    - /dev/bus/usb:/dev/bus/usb
