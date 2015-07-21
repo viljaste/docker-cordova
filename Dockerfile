@@ -8,4 +8,6 @@ ADD ./src /src
 
 RUN /src/entrypoint.sh build
 
+EXPOSE 8000
+
 ENTRYPOINT ["/src/entrypoint.sh", "run"]
