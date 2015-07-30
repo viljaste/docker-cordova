@@ -6,7 +6,7 @@ class build::android::sdk::packages {
       'lib32z1'
     ]:
     ensure => present,
-    before => Bash_exec['( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | /usr/local/src/android-sdk-linux/tools/android update sdk --no-ui']
+    before => Bash_exec['( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | /usr/local/src/android-sdk-linux/tools/android update sdk --no-ui -a --filter platform-tool,build-tools-22.0.1,android-22']
   }
 
   file { '/tmp/android-sdk_r24.2-linux':
@@ -31,7 +31,7 @@ class build::android::sdk::packages {
     require => Bash_exec['tar xzf /tmp/android-sdk_r24.2-linux.tgz -C /usr/local/src']
   }
 
-  bash_exec { '( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | /usr/local/src/android-sdk-linux/tools/android update sdk --no-ui':
+  bash_exec { '( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | /usr/local/src/android-sdk-linux/tools/android update sdk --no-ui -a --filter platform-tool,build-tools-22.0.1,android-22':
     require => File['/etc/profile.d/android.sh']
   }
 }
